@@ -130,7 +130,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           buttonHref="/contact"
           footnote={
             <>
-              We&rsquo;ll respond within <b className="text-[#292b2c]">24 hours</b>. No pressure,
+              We&rsquo;ll respond within <b className="text-foreground">24 hours</b>. No pressure,
               just expert advice.
             </>
           }

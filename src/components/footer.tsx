@@ -36,7 +36,22 @@ export async function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <Image src="/brand/logo-light.svg" alt="Toggle" width={66} height={18} priority />
+              <Image
+                src="/brand/logo-light.svg"
+                alt="Toggle"
+                width={66}
+                height={18}
+                priority
+                className="dark:hidden"
+              />
+              <Image
+                src="/brand/logo-dark.svg"
+                alt="Toggle"
+                width={66}
+                height={18}
+                priority
+                className="hidden dark:block"
+              />
             </Link>
             <p className="max-w-xs text-base leading-relaxed text-muted-foreground">
               {description}

@@ -41,12 +41,12 @@ export function TeamGrid({
   if (members.length === 0) return null
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
         <Reveal className="mb-14 flex flex-col gap-6">
           <Subtitle>{subtitle}</Subtitle>
-          <h2 className="max-w-2xl text-4xl font-semibold text-[#292b2c] md:text-5xl">{title}</h2>
-          {description && <p className="max-w-2xl text-[#565b5d]">{description}</p>}
+          <h2 className="max-w-2xl text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
+          {description && <p className="max-w-2xl text-muted-foreground">{description}</p>}
         </Reveal>
         <RevealGroup className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {members.map((member) => (
@@ -58,11 +58,11 @@ export function TeamGrid({
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   src={member.image}
                 />
-                <div className="absolute inset-x-0 bottom-0 h-3 bg-[#eb332d]" />
+                <div className="absolute inset-x-0 bottom-0 h-3 bg-primary" />
               </div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-xl font-semibold text-[#292b2c]">{member.name}</h3>
-                <p className="text-sm text-[#889091]">{member.role}</p>
+                <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
               </div>
             </RevealItem>
           ))}

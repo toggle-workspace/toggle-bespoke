@@ -6,6 +6,7 @@ import { MenuIcon, XIcon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
+import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { NAV_LINKS } from '@/lib/nav-links'
 
 export function Header() {
@@ -24,7 +25,22 @@ export function Header() {
     <header className="sticky top-0 z-60 w-full border-b border-border bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <Image src="/brand/logo-light.svg" alt="Toggle" width={66} height={18} priority />
+          <Image
+            src="/brand/logo-light.svg"
+            alt="Toggle"
+            width={66}
+            height={18}
+            priority
+            className="dark:hidden"
+          />
+          <Image
+            src="/brand/logo-dark.svg"
+            alt="Toggle"
+            width={66}
+            height={18}
+            priority
+            className="hidden dark:block"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -39,14 +55,17 @@ export function Header() {
           ))}
         </nav>
 
-        <Button
-          size="l"
-          className="hidden px-4 tracking-wide hover:opacity-90 md:flex"
-          nativeButton={false}
-          render={<Link href="/contact" />}
-        >
-          Apply Now
-        </Button>
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeSelector />
+          <Button
+            size="l"
+            className="px-4 tracking-wide hover:opacity-90"
+            nativeButton={false}
+            render={<Link href="/contact" />}
+          >
+            Apply Now
+          </Button>
+        </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
@@ -76,7 +95,8 @@ export function Header() {
                 </SheetClose>
               ))}
             </nav>
-            <div className="p-6">
+            <div className="flex flex-col gap-4 p-6">
+              <ThemeSelector />
               <SheetClose
                 render={
                   <Button

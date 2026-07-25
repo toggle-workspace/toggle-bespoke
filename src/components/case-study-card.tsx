@@ -16,7 +16,7 @@ export function CaseStudyCard({
     <a href={href} className="group block">
       <Card variant="default" className="border-transparent rounded-none bg-background">
         <CardContent className="p-0">
-          <div className="relative flex h-45 items-center justify-center overflow-hidden bg-[#f2f3f3] p-8">
+          <div className="relative flex h-45 items-center justify-center overflow-hidden bg-muted p-8">
             {logo && (
               <Image
                 alt={`${title} logo`}
@@ -27,8 +27,8 @@ export function CaseStudyCard({
             )}
           </div>
           <div className="flex flex-col gap-1 py-6 bg-background">
-            <h3 className="text-xl font-semibold text-[#292b2c]">{title}</h3>
-            {industry && <p className="text-sm text-[#889091]">{industry}</p>}
+            <h3 className="text-xl font-semibold text-foreground">{title}</h3>
+            {industry && <p className="text-sm text-muted-foreground">{industry}</p>}
           </div>
         </CardContent>
       </Card>

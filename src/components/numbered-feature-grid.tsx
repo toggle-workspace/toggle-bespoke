@@ -34,22 +34,22 @@ export function NumberedFeatureGrid({
   items?: NumberedFeatureGridItem[]
 }) {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
         <Reveal className="mb-14">
           <Subtitle>{subtitle}</Subtitle>
         </Reveal>
         <Reveal>
-          <h2 className="mb-14 text-4xl font-semibold text-[#292b2c] md:text-5xl max-w-2xl">
+          <h2 className="mb-14 text-4xl font-semibold text-foreground md:text-5xl max-w-2xl">
             {title}
           </h2>
         </Reveal>
         <RevealGroup className="grid grid-cols-1 gap-16 md:grid-cols-3">
           {items.map((item) => (
             <RevealItem key={item.number} className="flex flex-col gap-5">
-              <span className="text-6xl font-semibold text-[#d7dada]">{item.number}</span>
-              <h3 className="text-2xl font-semibold text-[#292b2c]">{item.title}</h3>
-              <p className="text-[#565b5d]">{item.description}</p>
+              <span className="text-6xl font-semibold text-muted">{item.number}</span>
+              <h3 className="text-2xl font-semibold text-foreground">{item.title}</h3>
+              <p className="text-muted-foreground">{item.description}</p>
             </RevealItem>
           ))}
         </RevealGroup>

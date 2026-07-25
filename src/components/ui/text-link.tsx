@@ -5,7 +5,7 @@ function TextLink({ className, ...props }: React.ComponentProps<'a'>) {
     <a
       data-slot="text-link"
       className={cn(
-        'w-fit border-b-2 border-[#eb332d] pb-1.5 font-semibold text-[#292b2c]',
+        'w-fit border-b-2 border-primary pb-1.5 font-semibold text-foreground',
         className,
       )}
       {...props}
