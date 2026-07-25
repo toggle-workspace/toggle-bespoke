@@ -5,10 +5,19 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
+import { CaseStudies } from './collections/CaseStudies'
+import { Client } from './collections/Client'
+import { ContentSections } from './collections/ContentSections'
+import { Faq } from './collections/Faq'
+import { Industries } from './collections/Industries'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
+import { Services } from './collections/Services'
+import { Team } from './collections/Team'
+import { Testimonials } from './collections/Testimonials'
 import { Users } from './collections/Users'
+import { CompanyInfo } from './globals/CompanyInfo'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -62,9 +71,23 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    CaseStudies,
+    Client,
+    ContentSections,
+    Faq,
+    Industries,
+    Services,
+    Team,
+    Testimonials,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, CompanyInfo],
   plugins,
   secret: process.env.PAYLOAD_SECRET,
   sharp,
