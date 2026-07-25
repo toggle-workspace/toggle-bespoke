@@ -8,8 +8,8 @@ function ContactDetail({ label, value }: { label: string; value?: string }) {
   if (!value) return null
   return (
     <div className="flex flex-col gap-1.5">
-      <p className="text-xs font-semibold tracking-widest text-[#889091] uppercase">{label}</p>
-      <p className="text-lg font-semibold text-[#292b2c]">{value}</p>
+      <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">{label}</p>
+      <p className="text-lg font-semibold text-foreground">{value}</p>
     </div>
   )
 }
@@ -65,11 +65,11 @@ export function Contact({
 
           {/* Form */}
           <Card variant="muted" className="p-8 lg:col-span-3 lg:p-12">
-            <h2 className="text-3xl font-bold text-[#292b2c] md:text-4xl">Book free intro call</h2>
-            <p className="mt-4 text-[#565b5d]">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">Book free intro call</h2>
+            <p className="mt-4 text-muted-foreground">
               Reach out to discover how your brand can grow and perform better. Our specialist will
               get back to you within{' '}
-              <strong className="font-semibold text-[#292b2c]">24 hours</strong> — no pressure, just
+              <strong className="font-semibold text-foreground">24 hours</strong> — no pressure, just
               expert advice.
             </p>
 

@@ -24,12 +24,12 @@ export function Testimonials({
   if (testimonials.length === 0) return null
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div className="flex flex-col gap-6">
             <Subtitle>{subtitle}</Subtitle>
-            <h2 className="text-4xl font-semibold text-[#292b2c] md:text-5xl">{title}</h2>
+            <h2 className="text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
             <Button
@@ -61,12 +61,12 @@ export function Testimonials({
               >
                 <Card variant="muted" className="h-80 justify-between gap-4 p-8">
                   <div className="flex flex-col gap-3">
-                    <h3 className="text-2xl font-semibold text-[#292b2c]">{testimonial.title}</h3>
-                    <p className="text-[#565b5d]">{testimonial.quote}</p>
+                    <h3 className="text-2xl font-semibold text-foreground">{testimonial.title}</h3>
+                    <p className="text-muted-foreground">{testimonial.quote}</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-[#292b2c]">{testimonial.name}</p>
-                    <p className="text-sm text-[#889091]">{testimonial.role}</p>
+                    <p className="font-semibold text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </Card>
               </CarouselItem>

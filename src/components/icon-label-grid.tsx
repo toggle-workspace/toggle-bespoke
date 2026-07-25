@@ -29,18 +29,18 @@ export function IconLabelGrid({
   items?: IconLabelGridItem[]
 }) {
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
         <div className="mb-14 flex flex-col gap-6">
           <Subtitle>{subtitle}</Subtitle>
-          <h2 className="text-4xl font-semibold text-[#292b2c] md:text-5xl">{title}</h2>
-          {description && <p className="max-w-lg text-[#565b5d]">{description}</p>}
+          <h2 className="text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
+          {description && <p className="max-w-lg text-muted-foreground">{description}</p>}
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {items.map((item) => (
             <Card key={item.label} variant="muted" className="justify-between gap-6 p-6">
               <img alt="" className="size-11 fill-border" src={item.icon} />
-              <p className="font-semibold text-[#292b2c]">{item.label}</p>
+              <p className="font-semibold text-foreground">{item.label}</p>
             </Card>
           ))}
         </div>

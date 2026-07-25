@@ -76,7 +76,7 @@ export function ContactForm({ interests }: { interests: string[] }) {
             <FormItem>
               <FormLabel>Full name*</FormLabel>
               <FormControl>
-                <Input className="bg-white" placeholder="John Doe" type="text" {...field} />
+                <Input className="bg-background" placeholder="John Doe" type="text" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -89,7 +89,7 @@ export function ContactForm({ interests }: { interests: string[] }) {
             <FormItem>
               <FormLabel>Email address*</FormLabel>
               <FormControl>
-                <Input className="bg-white" placeholder="john@acme.com" type="email" {...field} />
+                <Input className="bg-background" placeholder="john@acme.com" type="email" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -102,7 +102,7 @@ export function ContactForm({ interests }: { interests: string[] }) {
             <FormItem>
               <FormLabel>Phone number</FormLabel>
               <FormControl>
-                <Input className="bg-white" placeholder="+1 949-012-3456" type="tel" {...field} />
+                <Input className="bg-background" placeholder="+1 949-012-3456" type="tel" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -116,7 +116,7 @@ export function ContactForm({ interests }: { interests: string[] }) {
               <FormLabel>What are you interested in?</FormLabel>
               <Select value={field.value} onValueChange={field.onChange}>
                 <FormControl>
-                  <SelectTrigger className="w-full bg-white">
+                  <SelectTrigger className="w-full bg-background">
                     <SelectValue placeholder="Select a service…" />
                   </SelectTrigger>
                 </FormControl>
@@ -140,7 +140,7 @@ export function ContactForm({ interests }: { interests: string[] }) {
               <FormLabel>Your message</FormLabel>
               <FormControl>
                 <Textarea
-                  className="min-h-32 bg-white"
+                  className="min-h-32 bg-background"
                   placeholder="Share more about your use case, product, tech stack and what you want to accomplish"
                   {...field}
                 />
@@ -170,10 +170,10 @@ export function ContactForm({ interests }: { interests: string[] }) {
           {status === 'sending' ? 'Sending…' : 'Send message'}
         </Button>
         {status === 'sent' && (
-          <p className="text-sm text-green-600">Thanks! We&apos;ll be in touch soon.</p>
+          <p className="text-sm text-success">Thanks! We&apos;ll be in touch soon.</p>
         )}
         {status === 'error' && (
-          <p className="text-sm text-red-600">Something went wrong. Please try again.</p>
+          <p className="text-sm text-error">Something went wrong. Please try again.</p>
         )}
       </form>
     </Form>

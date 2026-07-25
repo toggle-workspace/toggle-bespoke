@@ -51,7 +51,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <div className="flex w-full flex-col gap-16 lg:w-2/3">
             {study?.background && (
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                     Background
                   </h2>
                   <RichText data={study.background} />
@@ -59,7 +59,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               )}
               {study?.challenges && (
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                     Challenges
                   </h2>
                   <RichText data={study.challenges} />
@@ -67,7 +67,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
               )}
               {study?.approach && (
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+                  <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                   Our Approach
                   </h2>
                   <RichText data={study.approach} />
@@ -106,7 +106,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
           buttonHref="/contact"
           footnote={
             <>
-              We&rsquo;ll respond within <b className="text-[#292b2c]">24 hours</b>. No pressure,
+              We&rsquo;ll respond within <b className="text-foreground">24 hours</b>. No pressure,
               just expert advice.
             </>
           }

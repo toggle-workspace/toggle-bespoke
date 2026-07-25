@@ -6,7 +6,7 @@ const cardVariants = cva('flex flex-col overflow-hidden', {
   variants: {
     variant: {
       default: 'rounded-lg border border-border bg-card',
-      muted: 'bg-[#f2f3f3]',
+      muted: 'bg-muted',
     },
   },
   defaultVariants: {

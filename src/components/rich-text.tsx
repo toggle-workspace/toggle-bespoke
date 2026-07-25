@@ -21,7 +21,7 @@ export function RichText({
     <PayloadRichText
       data={data}
       converters={converters}
-      className={`flex flex-col gap-4 text-[#565b5d] [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-[#292b2c] [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-[#292b2c] [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:font-semibold [&_a]:text-[#eb332d] [&_a]:hover:underline ${className ?? ''}`}
+      className={`flex flex-col gap-4 text-muted-foreground [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:list-decimal [&_ol]:pl-5 [&_a]:font-semibold [&_a]:text-primary [&_a]:hover:underline ${className ?? ''}`}
     />
   )
 }

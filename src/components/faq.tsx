@@ -24,7 +24,7 @@ export function FAQ({ faqs }: { faqs: FAQItem[] }) {
                 <AccordionTrigger className="text-2xl font-semibold">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#565b5d]">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

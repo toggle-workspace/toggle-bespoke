@@ -30,7 +30,7 @@ export function CaseStudiesGrid({
           <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-6">
             <div className="flex flex-col gap-6">
               {subtitle && <Subtitle>{subtitle}</Subtitle>}
-              <h2 className="text-4xl font-semibold text-[#292b2c] md:text-5xl">{title}</h2>
+              <h2 className="text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
             </div>
             <TextLink href={linkHref} className="text-base">
               {linkLabel}
