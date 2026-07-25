@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
+import Image from 'next/image'
+import { Card, CardContent } from '@/components/ui/card'
 
 export function CaseStudyCard({
   logo,
@@ -7,10 +7,10 @@ export function CaseStudyCard({
   industry,
   href,
 }: {
-  logo?: string;
-  title: string;
-  industry?: string;
-  href: string;
+  logo?: string
+  title: string
+  industry?: string
+  href: string
 }) {
   return (
     <a href={href} className="group block">
@@ -33,5 +33,5 @@ export function CaseStudyCard({
         </CardContent>
       </Card>
     </a>
-  );
+  )
 }

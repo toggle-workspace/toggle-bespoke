@@ -1,13 +1,9 @@
 const LINES_MASK = {
-  centered: "/marketing/hero-bg-lines-mask.svg",
-  "bottom-right": "/marketing/page-header-bg-lines-mask.svg",
-};
+  centered: '/marketing/hero-bg-lines-mask.svg',
+  'bottom-right': '/marketing/page-header-bg-lines-mask.svg',
+}
 
-export function GradientBackground({
-  lines = "centered",
-}: {
-  lines?: keyof typeof LINES_MASK;
-}) {
+export function GradientBackground({ lines = 'centered' }: { lines?: keyof typeof LINES_MASK }) {
   return (
     <>
       <img
@@ -22,5 +18,5 @@ export function GradientBackground({
       />
       <div className="absolute inset-0 -z-10 bg-linear-to-b from-white from-10% to-transparent to-70%" />
     </>
-  );
+  )
 }

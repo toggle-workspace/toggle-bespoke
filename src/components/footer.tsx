@@ -1,32 +1,32 @@
-import Image from "next/image";
-import Link from "next/link";
-import { getPayload } from "payload";
-import config from "@payload-config";
-import { getCompanyInfo } from "@/lib/company-info";
-import { NAV_LINKS as BASE_NAV_LINKS } from "@/lib/nav-links";
+import Image from 'next/image'
+import Link from 'next/link'
+import { getPayload } from 'payload'
+import config from '@payload-config'
+import { getCompanyInfo } from '@/lib/company-info'
+import { NAV_LINKS as BASE_NAV_LINKS } from '@/lib/nav-links'
 
-const NAV_LINKS = [...BASE_NAV_LINKS, { label: "Contact", href: "/contact" }];
+const NAV_LINKS = [...BASE_NAV_LINKS, { label: 'Contact', href: '/contact' }]
 
 async function getServices() {
-  const payload = await getPayload({ config });
+  const payload = await getPayload({ config })
   const { docs } = await payload.find({
-    collection: "services",
-    sort: "order",
+    collection: 'services',
+    sort: 'order',
     limit: 6,
     depth: 0,
-  });
+  })
   return docs.map((doc) => ({
     label: doc.serviceName,
     href: `/services/${doc.slug}`,
-  }));
+  }))
 }
 
 export async function Footer() {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
   const [services, { description, socialLinks }] = await Promise.all([
     getServices(),
     getCompanyInfo(),
-  ]);
+  ])
 
   return (
     <footer className="w-full bg-muted/5">
@@ -36,21 +36,9 @@ export async function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/brand/logo-light.svg"
-                alt="Toggle"
-                width={66}
-                height={18}
-                priority
-              />
+              <Image src="/brand/logo-light.svg" alt="Toggle" width={66} height={18} priority />
               <span className="h-4 w-px bg-border" />
-              <Image
-                src="/brand/coo-logo.svg"
-                alt="Toggle COO"
-                width={59}
-                height={18}
-                priority
-              />
+              <Image src="/brand/coo-logo.svg" alt="Toggle COO" width={59} height={18} priority />
             </Link>
             <p className="max-w-xs text-base leading-relaxed text-muted-foreground">
               {description}
@@ -126,20 +114,12 @@ export async function Footer() {
                 aria-label={s.label}
                 className="rounded-full p-2 transition-colors hover:bg-accent"
               >
-                {s.icon && (
-                  <Image
-                    src={s.icon}
-                    alt=""
-                    aria-hidden
-                    width={20}
-                    height={20}
-                  />
-                )}
+                {s.icon && <Image src={s.icon} alt="" aria-hidden width={20} height={20} />}
               </a>
             ))}
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }

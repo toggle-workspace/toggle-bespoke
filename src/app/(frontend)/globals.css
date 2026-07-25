@@ -68,7 +68,8 @@
 
 @theme inline {
   --animate-infinite-scroll: infinite-scroll var(--scroll-speed, 40s) linear infinite;
-  --animate-infinite-scroll-reverse: infinite-scroll-reverse var(--scroll-speed, 40s) linear infinite;
+  --animate-infinite-scroll-reverse: infinite-scroll-reverse var(--scroll-speed, 40s) linear
+    infinite;
 }
 
 .animate-infinite-scroll:hover {

@@ -49,23 +49,34 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         <section className="w-full">
           <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:gap-16 lg:px-8">
             <div className="flex w-full flex-col gap-16 lg:w-2/3">
-              <div className="flex flex-col gap-4">
-                <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
-                  Challenges
-                </h2>
-                <RichText data={study.challenges} />
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+            {study?.background && (
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+                    Background
+                  </h2>
+                  <RichText data={study.background} />
+                </div>
+              )}
+              {study?.challenges && (
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
+                    Challenges
+                  </h2>
+                  <RichText data={study.challenges} />
+                </div>
+              )}
+              {study?.approach && (
+                <div className="flex flex-col gap-4">
+                  <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
                   Our Approach
-                </h2>
-                <RichText data={study.approach} />
+                  </h2>
+                  <RichText data={study.approach} />
               </div>
+              )}
 
               <StatGrid
                 title="The Results"
-                description={study.shortDescription ?? ''}
+                description={study.result ? <RichText data={study.result} /> : undefined}
                 items={(study.results ?? []).map((result) => ({
                   value: result.value,
                   label: result.label,

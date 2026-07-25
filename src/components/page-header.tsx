@@ -1,14 +1,14 @@
-import { Subtitle } from "@/components/subtitle";
-import { GradientBackground } from "@/components/gradient-background";
+import { Subtitle } from '@/components/subtitle'
+import { GradientBackground } from '@/components/gradient-background'
 
 export function PageHeader({
   subtitle,
   title,
   description,
 }: {
-  subtitle?: string;
-  title: React.ReactNode;
-  description?: React.ReactNode;
+  subtitle?: string
+  title: React.ReactNode
+  description?: React.ReactNode
 }) {
   return (
     <section className="relative isolate w-full overflow-hidden bg-white">
@@ -18,10 +18,8 @@ export function PageHeader({
         <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-[#292b2c] md:text-6xl">
           {title}
         </h1>
-        {description && (
-          <p className="max-w-2xl text-lg text-[#565b5d]">{description}</p>
-        )}
+        {description && <p className="max-w-2xl text-lg text-[#565b5d]">{description}</p>}
       </div>
     </section>
-  );
+  )
 }

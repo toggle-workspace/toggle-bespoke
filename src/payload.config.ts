@@ -9,9 +9,9 @@ import { CaseStudies } from './collections/CaseStudies'
 import { Client } from './collections/Client'
 import { ContentSections } from './collections/ContentSections'
 import { Faq } from './collections/Faq'
+import { Highlights } from './collections/Highlights'
 import { Industries } from './collections/Industries'
 import { Media } from './collections/Media'
-import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Services } from './collections/Services'
 import { Team } from './collections/Team'
@@ -72,7 +72,6 @@ export default buildConfig({
     },
   }),
   collections: [
-    Pages,
     Posts,
     Media,
     Categories,
@@ -81,6 +80,7 @@ export default buildConfig({
     Client,
     ContentSections,
     Faq,
+    Highlights,
     Industries,
     Services,
     Team,

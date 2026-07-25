@@ -3,8 +3,8 @@ import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 
-export const Team: CollectionConfig = {
-  slug: 'team',
+export const Highlights: CollectionConfig = {
+  slug: 'highlights',
   access: {
     create: authenticated,
     delete: authenticated,
@@ -12,27 +12,22 @@ export const Team: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: 'name',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'role',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
       name: 'description',
-      type: 'textarea',
+      type: 'text',
+      required: true,
     },
     {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
+      name: 'order',
+      type: 'number',
     },
   ],
 }

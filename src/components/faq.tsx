@@ -3,13 +3,13 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Reveal } from "@/components/motion-primitives/reveal";
+} from '@/components/ui/accordion'
+import { Reveal } from '@/components/motion-primitives/reveal'
 
-type FAQItem = { question: string; answer: string };
+type FAQItem = { question: string; answer: string }
 
 export function FAQ({ faqs }: { faqs: FAQItem[] }) {
-  if (faqs.length === 0) return null;
+  if (faqs.length === 0) return null
 
   return (
     <section className="w-full">
@@ -24,14 +24,12 @@ export function FAQ({ faqs }: { faqs: FAQItem[] }) {
                 <AccordionTrigger className="text-2xl font-semibold">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-[#565b5d]">
-                  {faq.answer}
-                </AccordionContent>
+                <AccordionContent className="text-[#565b5d]">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </Reveal>
       </div>
     </section>
-  );
+  )
 }
