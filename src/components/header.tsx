@@ -1,49 +1,32 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import { MenuIcon, XIcon } from "lucide-react";
-import { useState, useEffect } from "react";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetClose,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { NAV_LINKS } from "@/lib/nav-links";
+import Image from 'next/image'
+import Link from 'next/link'
+import { MenuIcon, XIcon } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@/components/ui/sheet'
+import { Button } from '@/components/ui/button'
+import { NAV_LINKS } from '@/lib/nav-links'
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
+    const mq = window.matchMedia('(min-width: 768px)')
     const handler = (e: MediaQueryListEvent) => {
-      if (e.matches) setOpen(false);
-    };
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+      if (e.matches) setOpen(false)
+    }
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   return (
     <header className="sticky top-0 z-60 w-full border-b border-border bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <Image
-            src="/brand/logo-light.svg"
-            alt="Toggle"
-            width={66}
-            height={18}
-            priority
-          />
+          <Image src="/brand/logo-light.svg" alt="Toggle" width={66} height={18} priority />
           <span className="h-4 w-px bg-border" />
-          <Image
-            src="/brand/coo-logo.svg"
-            alt="Toggle COO"
-            width={59}
-            height={18}
-            priority
-          />
+          <Image src="/brand/coo-logo.svg" alt="Toggle COO" width={59} height={18} priority />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -64,7 +47,7 @@ export function Header() {
           nativeButton={false}
           render={<Link href="/contact" />}
         >
-          Book a call
+          Apply Now
         </Button>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -72,12 +55,8 @@ export function Header() {
             className="md:hidden rounded-lg p-2 text-foreground transition-colors hover:bg-accent"
             render={<button />}
           >
-            {open ? (
-              <XIcon className="size-5" />
-            ) : (
-              <MenuIcon className="size-5" />
-            )}
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+            {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+            <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
           </SheetTrigger>
           <SheetContent
             side="top"
@@ -110,12 +89,12 @@ export function Header() {
                   />
                 }
               >
-                Book a call
+                Apply Now
               </SheetClose>
             </div>
           </SheetContent>
         </Sheet>
       </div>
     </header>
-  );
+  )
 }

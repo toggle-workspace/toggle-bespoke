@@ -1,16 +1,13 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { GradientBackground } from "@/components/gradient-background";
-import {
-  RevealGroup,
-  RevealItem,
-} from "@/components/motion-primitives/reveal";
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { GradientBackground } from '@/components/gradient-background'
+import { RevealGroup, RevealItem } from '@/components/motion-primitives/reveal'
 
 type HeroAction = {
-  label: string;
-  href: string;
-  variant?: "default" | "brand-outline";
-};
+  label: string
+  href: string
+  variant?: 'default' | 'brand-outline'
+}
 
 export function Hero({
   subtitle,
@@ -18,10 +15,10 @@ export function Hero({
   description,
   actions = [],
 }: {
-  subtitle?: string;
-  title: React.ReactNode;
-  description?: React.ReactNode;
-  actions?: HeroAction[];
+  subtitle?: string
+  title: React.ReactNode
+  description?: React.ReactNode
+  actions?: HeroAction[]
 }) {
   return (
     <section className="relative isolate w-full overflow-hidden bg-white lg:flex lg:min-h-[calc(100dvh-4rem)] lg:items-center">
@@ -47,7 +44,7 @@ export function Hero({
             {actions.map((action) => (
               <Button
                 key={action.label}
-                variant={action.variant ?? "default"}
+                variant={action.variant ?? 'default'}
                 size="xl"
                 className="w-full sm:w-auto"
                 nativeButton={false}
@@ -60,5 +57,5 @@ export function Hero({
         )}
       </RevealGroup>
     </section>
-  );
+  )
 }

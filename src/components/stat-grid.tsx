@@ -1,11 +1,7 @@
-import { Card } from "@/components/ui/card";
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@/components/motion-primitives/reveal";
+import { Card } from '@/components/ui/card'
+import { Reveal, RevealGroup, RevealItem } from '@/components/motion-primitives/reveal'
 
-type StatGridItem = { value: string; label: string };
+type StatGridItem = { value: string; label: string }
 
 export function StatGrid({
   title,
@@ -13,10 +9,10 @@ export function StatGrid({
   items,
   columns = 2,
 }: {
-  title: React.ReactNode;
-  description?: React.ReactNode;
-  items: StatGridItem[];
-  columns?: 2 | 4;
+  title: React.ReactNode
+  description?: React.ReactNode
+  items: StatGridItem[]
+  columns?: 2 | 4
 }) {
   return (
     <section className="w-full bg-white">
@@ -25,15 +21,13 @@ export function StatGrid({
           <h2 className="text-3xl font-semibold tracking-tight text-[#292b2c] md:text-4xl">
             {title}
           </h2>
-          {description && (
-            <p className="max-w-2xl text-[#565b5d]">{description}</p>
-          )}
+          {description && <p className="max-w-2xl text-[#565b5d]">{description}</p>}
         </Reveal>
         <RevealGroup
           className={
             columns === 4
-              ? "grid grid-cols-2 gap-4 lg:grid-cols-4"
-              : "grid grid-cols-1 gap-4 sm:grid-cols-2"
+              ? 'grid grid-cols-2 gap-4 lg:grid-cols-4'
+              : 'grid grid-cols-1 gap-4 sm:grid-cols-2'
           }
         >
           {items.map((item) => (
@@ -49,5 +43,5 @@ export function StatGrid({
         </RevealGroup>
       </div>
     </section>
-  );
+  )
 }

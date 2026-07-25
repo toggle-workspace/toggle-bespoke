@@ -39,12 +39,22 @@ export const CaseStudies: CollectionConfig = {
       relationTo: 'client',
     },
     {
+      name: 'background',
+      type: 'richText',
+      editor: defaultLexical,
+    },
+    {
       name: 'challenges',
       type: 'richText',
       editor: defaultLexical,
     },
     {
       name: 'approach',
+      type: 'richText',
+      editor: defaultLexical,
+    },
+    {
+      name: 'result',
       type: 'richText',
       editor: defaultLexical,
     },

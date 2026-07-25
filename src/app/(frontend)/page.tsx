@@ -29,6 +29,19 @@ async function getServices() {
   }))
 }
 
+async function getHighlights() {
+  const payload = await getPayload({ config })
+  const { docs } = await payload.find({
+    collection: 'highlights',
+    sort: 'order',
+  })
+  return docs.map((doc, index) => ({
+    number: `${String(index + 1).padStart(2, '0')}.`,
+    title: doc.title,
+    description: doc.description,
+  }))
+}
+
 async function getClientLogos() {
   const payload = await getPayload({ config })
   const { docs } = await payload.find({
@@ -48,25 +61,31 @@ async function getClientLogos() {
 
 export default async function Home() {
   const payloadServices = await getServices()
+  const highlights = await getHighlights()
   const clientLogos = await getClientLogos()
   const caseStudies = await getAllCaseStudies(6)
   const content = await getContentSection('home', FALLBACK_CONTENT_IMAGE)
   return (
     <>
       <Hero
-        subtitle="Strategy. Creativity. Results."
-        title="Performance Marketing Made Clear & Effective"
-        description="From brand positioning to digital campaigns, we deliver practical marketing solutions designed to increase visibility, engagement, and long-term growth."
+        subtitle="Expert Execution. Proven Results"
+        title="Expert Marketing Setup, Completed in One Weekend"
+        description="Senior marketers work hands-on with your team to build, launch, document, your paid marketing so you can run it confidently without an agency."
         actions={[
           {
             label: 'Client Examples',
             href: '/case-studies',
             variant: 'brand-outline',
           },
-          { label: 'Book Into Call', href: '/contact' },
+          { label: 'Get Your Marketing Set Up', href: '/contact' },
         ]}
       />
       <div className="space-y-24 pt-16 sm:space-y-32 sm:pt-24">
+        <NumberedFeatureGrid
+          title="Your entire paid marketing setup, built in one weekend"
+          subtitle="What We Do"
+          items={highlights}
+        />
         <SplitContent
           title={
             content?.title ??
@@ -87,18 +106,11 @@ export default async function Home() {
         />
         <ClientLogos logos={clientLogos} />
         <CaseStudiesGrid studies={caseStudies} />
-        <NumberedFeatureGrid />
         <CTA
-          title="Ready to grow your brand?"
-          description="Take the first step toward marketing success."
+          title="Get Your Marketing Set Up"
+          description="Tell us about your team and we'll see if this is right for you."
           buttonLabel="Schedule a call with our experts"
           buttonHref="/contact"
-          footnote={
-            <>
-              We&rsquo;ll respond within <b className="text-[#292b2c]">24 hours</b>. No pressure,
-              just expert advice.
-            </>
-          }
         />
       </div>
     </>
