@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { TextLink } from '@/components/ui/text-link'
 import { Subtitle } from '@/components/subtitle'
 import { Reveal, RevealGroup, RevealItem } from '@/components/motion-primitives/reveal'
@@ -34,9 +35,11 @@ export function IconFeatureGrid({
           {items.map((item) => (
             <RevealItem key={item.title} className="group flex gap-7">
               {typeof item.icon === 'string' ? (
-                <img
+                <Image
                   alt=""
-                  className="size-14 shrink-0 fill-border transition-transform duration-300"
+                  width={48}
+                  height={48}
+                  className="size-14 shrink-0 transition-transform duration-300 fill-muted-foreground/50"
                   src={item.icon}
                 />
               ) : (

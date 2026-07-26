@@ -36,7 +36,7 @@ async function getIndustries() {
   })
   return docs.map((doc) => ({
     label: doc.name,
-    icon: <PhosphorIcon name={doc.icon} className="size-11" />,
+    icon: <PhosphorIcon name={doc.icon} className="size-11 fill-muted-foreground/50" />,
   }))
 }
 

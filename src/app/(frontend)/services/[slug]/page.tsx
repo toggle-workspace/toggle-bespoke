@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             subtitle="What we deliver"
             title={service.deliverablesSectionTitle ?? undefined}
             items={deliverables.map((deliverable) => ({
-              icon: <PhosphorIcon name={deliverable.icon} className="size-14" />,
+              icon: <PhosphorIcon name={deliverable.icon} className="size-14 fill-muted-foreground/50" />,
               title: deliverable.title,
               description: deliverable.description ?? '',
             }))}
@@ -96,7 +96,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             title={service.deliverablesSectionTitle ?? undefined}
             items={deliverables.map((deliverable) => ({
               label: deliverable.title,
-              icon: <PhosphorIcon name={deliverable.icon} className="size-11" />,
+              icon: <PhosphorIcon name={deliverable.icon} className="size-11 fill-muted-foreground/50" />,
             }))}
           />
         )}

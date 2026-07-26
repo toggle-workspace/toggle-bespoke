@@ -40,7 +40,7 @@ export default async function ServicesPage() {
       <div className="space-y-16 pt-16 sm:space-y-32 sm:pt-24">
         <IconFeatureGrid
           items={payloadServices.map((service) => ({
-            icon: <PhosphorIcon name={service.icon} className="size-14" />,
+            icon: <PhosphorIcon name={service.icon} className="size-14 fill-muted-foreground/50" />,
             title: service.title,
             description: service.shortDescription,
             href: `/services/${service.slug}`,
