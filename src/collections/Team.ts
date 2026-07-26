@@ -35,6 +35,10 @@ export const Team: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
     },
+    {
+      name: 'order',
+      type: 'number',
+    },
   ],
   hooks: {
     afterChange: [revalidateContent],
