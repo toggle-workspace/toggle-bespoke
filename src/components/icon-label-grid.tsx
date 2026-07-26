@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Card } from '@/components/ui/card'
 import { Subtitle } from '@/components/subtitle'
 
@@ -51,7 +52,7 @@ export function IconLabelGrid({
           {items.map((item) => (
             <Card key={item.label} variant="muted" className="justify-between gap-6 p-6">
               {typeof item.icon === 'string' ? (
-                <img alt="" className="size-11 fill-border" src={item.icon} />
+                <Image alt="" width={44} height={44} className="size-11 fill-border" src={item.icon} />
               ) : (
                 item.icon
               )}

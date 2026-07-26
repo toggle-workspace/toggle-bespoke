@@ -40,7 +40,7 @@ export function IconFeatureGrid({
                   src={item.icon}
                 />
               ) : (
-                item.icon
+                <div className="size-14 shrink-0">{item.icon}</div>
               )}
               <div className="flex flex-col gap-4">
                 <h3 className="text-2xl font-semibold text-foreground">{item.title}</h3>
