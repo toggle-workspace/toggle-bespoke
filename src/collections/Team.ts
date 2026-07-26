@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { revalidateContent, revalidateContentDelete } from './hooks/revalidateContent'
 
 export const Team: CollectionConfig = {
   slug: 'team',
@@ -35,4 +36,8 @@ export const Team: CollectionConfig = {
       relationTo: 'media',
     },
   ],
+  hooks: {
+    afterChange: [revalidateContent],
+    afterDelete: [revalidateContentDelete],
+  },
 }

@@ -2,6 +2,7 @@ import type { GlobalConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { revalidateCompanyInfo } from './hooks/revalidateCompanyInfo'
 
 export const CompanyInfo: GlobalConfig = {
   slug: 'company-info',
@@ -48,4 +49,7 @@ export const CompanyInfo: GlobalConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateCompanyInfo],
+  },
 }

@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { revalidateContent, revalidateContentDelete } from './hooks/revalidateContent'
 
 export const Client: CollectionConfig = {
   slug: 'client',
@@ -47,4 +48,8 @@ export const Client: CollectionConfig = {
       type: 'text',
     },
   ],
+  hooks: {
+    afterChange: [revalidateContent],
+    afterDelete: [revalidateContentDelete],
+  },
 }

@@ -3,6 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { defaultLexical } from '@/fields/defaultLexical'
+import { revalidateContent, revalidateContentDelete } from './hooks/revalidateContent'
 
 export const CaseStudies: CollectionConfig = {
   slug: 'case-studies',
@@ -81,4 +82,8 @@ export const CaseStudies: CollectionConfig = {
       ],
     },
   ],
+  hooks: {
+    afterChange: [revalidateContent],
+    afterDelete: [revalidateContentDelete],
+  },
 }

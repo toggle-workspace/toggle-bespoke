@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { phosphorIcon } from '@/fields/phosphorIcon'
-import { revalidateService, revalidateServiceDelete } from './hooks/revalidateService'
+import { revalidateContent, revalidateContentDelete } from './hooks/revalidateContent'
 
 export const Services: CollectionConfig = {
   slug: 'services',
@@ -84,7 +84,7 @@ export const Services: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [revalidateService],
-    afterDelete: [revalidateServiceDelete],
+    afterChange: [revalidateContent],
+    afterDelete: [revalidateContentDelete],
   },
 }
