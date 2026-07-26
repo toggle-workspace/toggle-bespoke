@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { phosphorIcon } from '@/fields/phosphorIcon'
 
 export const Services: CollectionConfig = {
   slug: 'services',
@@ -32,11 +33,7 @@ export const Services: CollectionConfig = {
       name: 'slug',
       type: 'text',
     },
-    {
-      name: 'icon',
-      type: 'upload',
-      relationTo: 'media',
-    },
+    phosphorIcon(),
     {
       name: 'title',
       type: 'text',
@@ -49,11 +46,7 @@ export const Services: CollectionConfig = {
       name: 'deliverablesItems',
       type: 'array',
       fields: [
-        {
-          name: 'icon',
-          type: 'upload',
-          relationTo: 'media',
-        },
+        phosphorIcon(),
         {
           name: 'title',
           type: 'text',
