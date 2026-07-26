@@ -43,7 +43,7 @@ export function IconLabelGrid({
   return (
     <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 mb-6">
           <Subtitle>{subtitle}</Subtitle>
           <h2 className="text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
           {description && <p className="max-w-lg text-muted-foreground">{description}</p>}
@@ -56,7 +56,7 @@ export function IconLabelGrid({
                   alt=""
                   width={44}
                   height={44}
-                  className="size-11 fill-border"
+                  className="size-11 fill-muted-foreground/50"
                   src={item.icon}
                 />
               ) : (

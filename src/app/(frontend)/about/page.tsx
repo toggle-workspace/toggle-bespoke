@@ -3,7 +3,7 @@ import { PageHeader } from '@/components/page-header'
 import { SplitContent } from '@/components/split-content'
 import { IconLabelGrid } from '@/components/icon-label-grid'
 import { NumberedFeatureGrid } from '@/components/numbered-feature-grid'
-import { TeamGrid } from '@/components/team-grid'
+import { AboutTeam } from '@/components/about-team'
 import { Testimonials } from '@/components/testimonials'
 import { CTA } from '@/components/cta'
 import { getPayload } from 'payload'
@@ -78,7 +78,13 @@ export default async function AboutPage() {
         />
         <IconLabelGrid description="These standards define how we operate every day and the qualities we expect from our people and partners." />
         <NumberedFeatureGrid />
-        <TeamGrid members={team} />
+        <AboutTeam
+          subtitle="Our Team"
+          title="Meet the people behind the work"
+          description="A group of strategists, creatives, and marketers dedicated to building brands that stand out and perform."
+          link={{ label: 'Meet The Team', href: '/team' }}
+          members={team}
+        />
         <Testimonials testimonials={testimonials} />
         <CTA
           title="Ready to grow your brand?"

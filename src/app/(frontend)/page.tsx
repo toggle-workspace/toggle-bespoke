@@ -109,7 +109,7 @@ export default async function Home() {
         />
         <IconFeatureGrid
           items={payloadServices.map((service) => ({
-            icon: <PhosphorIcon name={service.icon} className="size-14" />,
+            icon: <PhosphorIcon name={service.icon} className="size-14 fill-muted-foreground/50" />,
             title: service.title,
             description: service.shortDescription,
             href: `/services/${service.slug}`,
