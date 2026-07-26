@@ -1,5 +1,4 @@
 import { Hero } from '@/components/hero'
-import { SplitContent } from '@/components/split-content'
 import { IconFeatureGrid } from '@/components/icon-feature-grid'
 import { ClientLogos } from '@/components/client-logos'
 import { CaseStudiesGrid } from '@/components/case-studies-grid'
@@ -10,6 +9,7 @@ import config from '@payload-config'
 import { getAllCaseStudies } from '@/lib/case-studies'
 import { getContentSection } from '@/lib/content-sections'
 import { PhosphorIcon } from '@/components/phosphor-icon'
+import { AboutTeam } from '@/components/about-team'
 
 const FALLBACK_CONTENT_IMAGE = '/marketing/hero-video-bg.jpg'
 
@@ -42,6 +42,20 @@ async function getHighlights() {
   }))
 }
 
+async function getTeam() {
+  const payload = await getPayload({ config })
+  const { docs } = await payload.find({
+    collection: 'team',
+    depth: 1,
+    sort: 'order',
+  })
+  return docs.map((doc) => ({
+    name: doc.name,
+    role: doc.role ?? '',
+    image: (typeof doc.image === 'object' ? doc.image?.url : undefined) ?? FALLBACK_CONTENT_IMAGE,
+  }))
+}
+
 async function getClientLogos() {
   const payload = await getPayload({ config })
   const { docs } = await payload.find({
@@ -62,9 +76,9 @@ async function getClientLogos() {
 export default async function Home() {
   const payloadServices = await getServices()
   const highlights = await getHighlights()
+  const team = await getTeam()
   const clientLogos = await getClientLogos()
   const caseStudies = await getAllCaseStudies(6)
-  const content = await getContentSection('home', FALLBACK_CONTENT_IMAGE)
   return (
     <>
       <Hero
@@ -86,15 +100,12 @@ export default async function Home() {
           subtitle="What We Do"
           items={highlights}
         />
-        <SplitContent
-          title={
-            content?.title ??
-            'We’re a team of strategists, creatives, and marketers working together to produce standout content and ensure it reaches the right audience.'
-          }
-          description={content?.description}
-          link={content?.link ?? { label: 'More about us', href: '/about' }}
-          stats={content?.stats}
-          image={content?.image ?? FALLBACK_CONTENT_IMAGE}
+        <AboutTeam
+          subtitle="Our Team"
+          title="Meet the people behind the work"
+          description="A group of strategists, creatives, and marketers dedicated to building brands that stand out and perform."
+          link={{ label: 'Meet The Team', href: '/team' }}
+          members={team}
         />
         <IconFeatureGrid
           items={payloadServices.map((service) => ({

@@ -50,7 +50,7 @@ export default async function TeamPage() {
         description="A group of strategists, creatives, and marketers dedicated to building brands that stand out and perform."
       />
       <div className="space-y-24 pt-16 sm:space-y-32 sm:pt-24">
-        <TeamGrid members={team} />
+        <TeamGrid members={team} hideHeading />
         <IconLabelGrid subtitle="Who we help" title="Industries we support" items={industries} />
         <CTA
           title="Ready to grow your brand?"

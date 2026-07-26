@@ -36,7 +36,7 @@ export function NumberedFeatureGrid({
   return (
     <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
-        <Reveal className="mb-14">
+        <Reveal className="mb-6">
           <Subtitle>{subtitle}</Subtitle>
         </Reveal>
         <Reveal>
@@ -47,7 +47,7 @@ export function NumberedFeatureGrid({
         <RevealGroup className="grid grid-cols-1 gap-16 md:grid-cols-3">
           {items.map((item) => (
             <RevealItem key={item.number} className="flex flex-col gap-5">
-              <span className="text-6xl font-semibold text-muted">{item.number}</span>
+              <span className="text-6xl font-semibold text-muted-foreground/50">{item.number}</span>
               <h3 className="text-2xl font-semibold text-foreground">{item.title}</h3>
               <p className="text-muted-foreground">{item.description}</p>
             </RevealItem>
