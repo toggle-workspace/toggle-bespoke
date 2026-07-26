@@ -19,6 +19,7 @@ async function getTeam() {
   const { docs } = await payload.find({
     collection: 'team',
     depth: 1,
+    sort: 'order',
   })
   return docs.map((doc) => ({
     name: doc.name,
