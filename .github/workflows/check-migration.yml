@@ -1,0 +1,33 @@
+name: Check migration file
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-migration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify schema changes ship with a migration
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          CHANGED=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")
+
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          SCHEMA_CHANGED=$(echo "$CHANGED" | grep -E '^src/(collections|globals|fields)/|^src/payload\.config\.ts$' || true)
+          MIGRATION_ADDED=$(echo "$CHANGED" | grep -E '^src/migrations/' || true)
+
+          if [ -n "$SCHEMA_CHANGED" ] && [ -z "$MIGRATION_ADDED" ]; then
+            echo "::error::Schema-affecting files changed but no migration file was added under src/migrations/. Run 'npm run migrate:create' and commit the result."
+            echo "Schema files changed:"
+            echo "$SCHEMA_CHANGED"
+            exit 1
+          fi
+
+          echo "OK"
