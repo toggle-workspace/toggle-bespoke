@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { TextLink } from '@/components/ui/text-link'
+import { Subtitle } from '@/components/subtitle'
 import { RevealGroup, RevealItem } from '@/components/motion-primitives/reveal'
 import { InfiniteSlider } from '@/components/motion-primitives/infinite-slider'
 import { ProgressiveBlur } from '@/components/motion-primitives/progressive-blur'
@@ -8,12 +9,14 @@ type Stat = { value: string; label: string }
 type Member = { name: string; role: string; image: string }
 
 export function AboutTeam({
+  subtitle,
   title,
   description,
   link,
   stats,
   members = [],
 }: {
+  subtitle?: string
   title: React.ReactNode
   description?: React.ReactNode
   link?: { label: string; href: string }
@@ -33,6 +36,7 @@ export function AboutTeam({
     <section className="w-full bg-background">
       <RevealGroup className="mx-auto flex max-w-325 flex-col items-stretch gap-10 px-6 lg:flex-row lg:px-8">
         <RevealItem className="flex flex-1 flex-col justify-center gap-6">
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
           <h2 className="text-4xl font-semibold text-foreground md:text-5xl max-w-2xl">{title}</h2>
           {description && <p className="text-muted-foreground text-lg">{description}</p>}
           {stats && stats.length > 0 && (

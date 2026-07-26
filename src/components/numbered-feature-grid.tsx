@@ -36,7 +36,7 @@ export function NumberedFeatureGrid({
   return (
     <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
-        <Reveal className="mb-14">
+        <Reveal className="mb-6">
           <Subtitle>{subtitle}</Subtitle>
         </Reveal>
         <Reveal>

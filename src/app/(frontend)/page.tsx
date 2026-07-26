@@ -101,6 +101,7 @@ export default async function Home() {
           items={highlights}
         />
         <AboutTeam
+          subtitle="Our Team"
           title="Meet the people behind the work"
           description="A group of strategists, creatives, and marketers dedicated to building brands that stand out and perform."
           link={{ label: 'Meet The Team', href: '/team' }}

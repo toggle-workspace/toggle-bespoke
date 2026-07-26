@@ -43,7 +43,7 @@ export function IconLabelGrid({
   return (
     <section className="w-full bg-background">
       <div className="mx-auto max-w-325 px-6 lg:px-8">
-        <div className="mb-14 flex flex-col gap-6">
+        <div className="flex flex-col gap-6">
           <Subtitle>{subtitle}</Subtitle>
           <h2 className="text-4xl font-semibold text-foreground md:text-5xl">{title}</h2>
           {description && <p className="max-w-lg text-muted-foreground">{description}</p>}
@@ -52,7 +52,13 @@ export function IconLabelGrid({
           {items.map((item) => (
             <Card key={item.label} variant="muted" className="justify-between gap-6 p-6">
               {typeof item.icon === 'string' ? (
-                <Image alt="" width={44} height={44} className="size-11 fill-border" src={item.icon} />
+                <Image
+                  alt=""
+                  width={44}
+                  height={44}
+                  className="size-11 fill-border"
+                  src={item.icon}
+                />
               ) : (
                 item.icon
               )}
