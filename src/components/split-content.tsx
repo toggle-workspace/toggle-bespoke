@@ -39,7 +39,7 @@ export function SplitContent({
             </TextLink>
           )}
         </RevealItem>
-        <RevealItem className="relative min-h-100 flex-1 overflow-hidden rounded-2xl">
+        <RevealItem className="relative min-h-100 flex-1 overflow-hidden">
           <Image alt="" fill className="object-cover" src={image} />
         </RevealItem>
       </RevealGroup>
