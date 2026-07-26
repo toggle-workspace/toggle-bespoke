@@ -75,7 +75,7 @@ export default async function AboutPage() {
           }
           image={content?.image ?? FALLBACK_CONTENT_IMAGE}
         />
-        <IconLabelGrid />
+        <IconLabelGrid description="These standards define how we operate every day and the qualities we expect from our people and partners." />
         <NumberedFeatureGrid />
         <TeamGrid members={team} />
         <Testimonials testimonials={testimonials} />

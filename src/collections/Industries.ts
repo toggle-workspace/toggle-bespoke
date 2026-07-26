@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { phosphorIcon } from '@/fields/phosphorIcon'
 
 export const Industries: CollectionConfig = {
   slug: 'industries',
@@ -20,5 +21,6 @@ export const Industries: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    phosphorIcon(),
   ],
 }

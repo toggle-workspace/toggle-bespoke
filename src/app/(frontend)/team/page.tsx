@@ -4,6 +4,8 @@ import { TeamGrid } from '@/components/team-grid'
 import { CTA } from '@/components/cta'
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import { IconLabelGrid } from '@/components/icon-label-grid'
+import { PhosphorIcon } from '@/components/phosphor-icon'
 
 const FALLBACK_IMAGE = '/about/team-alexander-cole.jpg'
 
@@ -25,8 +27,20 @@ async function getTeam() {
   }))
 }
 
+async function getIndustries() {
+  const payload = await getPayload({ config })
+  const { docs } = await payload.find({
+    collection: 'industries',
+    depth: 1,
+  })
+  return docs.map((doc) => ({
+    label: doc.name,
+    icon: <PhosphorIcon name={doc.icon} className="size-11" />,
+  }))
+}
+
 export default async function TeamPage() {
-  const team = await getTeam()
+  const [team, industries] = await Promise.all([getTeam(), getIndustries()])
   return (
     <div>
       <PageHeader
@@ -36,6 +50,7 @@ export default async function TeamPage() {
       />
       <div className="space-y-24 pt-16 sm:space-y-32 sm:pt-24">
         <TeamGrid members={team} />
+        <IconLabelGrid subtitle="Who we help" title="Industries we support" items={industries} />
         <CTA
           title="Ready to grow your brand?"
           description="Take the first step toward marketing success."

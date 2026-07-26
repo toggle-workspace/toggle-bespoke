@@ -10,9 +10,8 @@ import { NumberedFeatureGrid } from '@/components/numbered-feature-grid'
 import { FAQ } from '@/components/faq'
 import { CTA } from '@/components/cta'
 import { getAllCaseStudies, getRelatedCaseStudies } from '@/lib/case-studies'
+import { PhosphorIcon } from '@/components/phosphor-icon'
 import config from '@payload-config'
-
-const FALLBACK_ICON = '/marketing/icon-strategy.svg'
 
 async function getService(slug: string) {
   const payload = await getPayload({ config })
@@ -86,9 +85,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             subtitle="What we deliver"
             title={service.deliverablesSectionTitle ?? undefined}
             items={deliverables.map((deliverable) => ({
-              icon:
-                (typeof deliverable.icon === 'object' ? deliverable.icon?.url : undefined) ??
-                FALLBACK_ICON,
+              icon: <PhosphorIcon name={deliverable.icon} className="size-14" />,
               title: deliverable.title,
               description: deliverable.description ?? '',
             }))}
@@ -97,12 +94,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <IconLabelGrid
             subtitle="What we deliver"
             title={service.deliverablesSectionTitle ?? undefined}
-            description=""
             items={deliverables.map((deliverable) => ({
               label: deliverable.title,
-              icon:
-                (typeof deliverable.icon === 'object' ? deliverable.icon?.url : undefined) ??
-                FALLBACK_ICON,
+              icon: <PhosphorIcon name={deliverable.icon} className="size-11" />,
             }))}
           />
         )}

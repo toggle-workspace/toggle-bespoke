@@ -4,8 +4,7 @@ import { PageHeader } from '@/components/page-header'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { CTA } from '@/components/cta'
-
-const FALLBACK_ICON = '/marketing/icon-strategy.svg'
+import { PhosphorIcon } from '@/components/phosphor-icon'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -25,7 +24,7 @@ async function getServices() {
     title: doc.serviceName,
     slug: doc.slug,
     shortDescription: doc.description ?? '',
-    icon: (typeof doc.icon === 'object' ? doc.icon?.url : undefined) ?? FALLBACK_ICON,
+    icon: doc.icon,
   }))
 }
 
@@ -41,7 +40,7 @@ export default async function ServicesPage() {
       <div className="space-y-16 pt-16 sm:space-y-32 sm:pt-24">
         <IconFeatureGrid
           items={payloadServices.map((service) => ({
-            icon: service.icon,
+            icon: <PhosphorIcon name={service.icon} className="size-14" />,
             title: service.title,
             description: service.shortDescription,
             href: `/services/${service.slug}`,
