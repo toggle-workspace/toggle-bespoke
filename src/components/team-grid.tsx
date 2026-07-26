@@ -58,7 +58,6 @@ export function TeamGrid({
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   src={member.image}
                 />
-                <div className="absolute inset-x-0 bottom-0 h-3 bg-primary" />
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
