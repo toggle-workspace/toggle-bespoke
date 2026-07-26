@@ -10,6 +10,7 @@ import { getAllCaseStudies } from '@/lib/case-studies'
 import { getContentSection } from '@/lib/content-sections'
 import { PhosphorIcon } from '@/components/phosphor-icon'
 import { AboutTeam } from '@/components/about-team'
+import { SplitContent } from '@/components/split-content'
 
 const FALLBACK_CONTENT_IMAGE = '/marketing/hero-video-bg.jpg'
 
@@ -79,6 +80,7 @@ export default async function Home() {
   const team = await getTeam()
   const clientLogos = await getClientLogos()
   const caseStudies = await getAllCaseStudies(6)
+  const content = await getContentSection('home-about', FALLBACK_CONTENT_IMAGE)
   return (
     <>
       <Hero
@@ -95,6 +97,15 @@ export default async function Home() {
         ]}
       />
       <div className="space-y-24 pt-16 sm:space-y-32 sm:pt-24">
+        {content && (
+          <SplitContent
+            title={content?.title}
+            description={content?.description}
+            link={content?.link}
+            stats={content?.stats}
+            image={content?.image}
+          />
+        )}
         <NumberedFeatureGrid
           title="Your entire paid marketing setup, built in one weekend"
           subtitle="What We Do"

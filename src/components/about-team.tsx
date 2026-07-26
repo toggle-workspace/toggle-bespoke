@@ -64,7 +64,7 @@ export function AboutTeam({
                     {row.map((member, memberIndex) => (
                       <div
                         key={`${member.name}-${memberIndex}`}
-                        className="relative size-40 shrink-0 overflow-hidden rounded-xl"
+                        className="relative size-60 shrink-0 overflow-hidden"
                       >
                         <Image alt={member.name} fill className="object-cover" src={member.image} />
                       </div>
