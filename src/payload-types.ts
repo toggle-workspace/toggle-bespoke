@@ -5195,6 +5195,7 @@ export interface Team {
   role: string;
   description?: string | null;
   image?: (number | null) | Media;
+  order?: number | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -5979,6 +5980,7 @@ export interface TeamSelect<T extends boolean = true> {
   role?: T;
   description?: T;
   image?: T;
+  order?: T;
   updatedAt?: T;
   createdAt?: T;
 }
