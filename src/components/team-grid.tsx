@@ -51,7 +51,7 @@ export function TeamGrid({
         <RevealGroup className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {members.map((member) => (
             <RevealItem key={member.name} className="flex flex-col gap-5">
-              <div className="group relative aspect-square overflow-hidden">
+              <div className="group relative aspect-square shrink-0 overflow-hidden">
                 <Image
                   alt={member.name}
                   fill
